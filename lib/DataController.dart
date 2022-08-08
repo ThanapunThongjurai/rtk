@@ -17,6 +17,9 @@ class DataController extends GetxController {
   Rx<GNRMCmodel> gnrmc = GNRMCmodel().obs;
   Rx<GNGGAmodel> gngga = GNGGAmodel().obs;
 
+  RxString latGNGGA = "".obs;
+  RxString lonGNGGA = "".obs;
+
   Socket? _socket;
 
   Future<void> connectServer(String ip,int port) async {
@@ -55,6 +58,10 @@ class DataController extends GetxController {
         print(gngst.value);
         print(gnrmc.value);
         print(gngga.value);
+
+
+
+
         // for (int i = 0; i < decode.length; i++) {
         //   if (decode[i].startsWith("\$GNGGA")) {
         //     GNGGA.value = decode[i];

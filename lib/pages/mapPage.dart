@@ -5,8 +5,10 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rtk/datamodel/GNGGAmodel.dart';
+import 'package:rtk/lib/NMEA0183.dart';
 
 import '../DataController.dart';
+import '../widget/NavDrawer.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -31,8 +33,12 @@ class _MapPageState extends State<MapPage> {
   void initState() {
     super.initState();
     GNGGAmodel test = getDataFormControllerData.gngga.value;
-    lat = double.parse(test.lat!);
-    lng = double.parse(test.lon!);
+    setState(() {
+      lat = NMEA().ds_to_sd(test.lat!);
+      lng = NMEA().ds_to_sd(test.lon!);
+      print("map lat :"+lat.toString());
+      print("mao lot : "+lng.toString());
+    });
   }
 
   @override
@@ -40,6 +46,7 @@ class _MapPageState extends State<MapPage> {
     point.add(Marker(markerId: MarkerId("marker1"), position: LatLng(lat, lng)));
 
     return Scaffold(
+      drawer: NavDrawerWidget(),
       body: Container(
         child: GoogleMap(
           markers: point,

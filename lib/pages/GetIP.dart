@@ -16,7 +16,7 @@ class GetIPDevices extends StatefulWidget {
 }
 
 class _GetIPDevicesState extends State<GetIPDevices> {
-  TextEditingController ip = new TextEditingController(text: "192.168.137.17");
+  TextEditingController ip = new TextEditingController(text: "192.168.1.150");
   TextEditingController port = new TextEditingController(text: "9000");
 
 
