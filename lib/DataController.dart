@@ -22,6 +22,9 @@ class DataController extends GetxController {
 
   Socket? _socket;
 
+
+
+
   Future<void> connectServer(String ip,int port) async {
     _socket?.done;
     _socket?.close();
