@@ -23,17 +23,22 @@ class _NavDrawerWidgetState extends State<NavDrawerWidget> {
           Column(
             children: <Widget>[
               ListTile(
-                leading: Icon(FontAwesomeIcons.btc),
+                leading: Icon(FontAwesomeIcons.towerBroadcast),
                 title: Text("IPdevices"),
                 onTap: ()=>Get.off(()=>GetIPDevices()),
               ),
               ListTile(
-                leading: Icon(FontAwesomeIcons.home),
+                leading: Icon(FontAwesomeIcons.arrowsToEye),
                 title: Text("HomePage"),
                 onTap: ()=>Get.off(()=>HomePage()),
               ),
               ListTile(
-                leading: Icon(FontAwesomeIcons.btc),
+                leading: Icon(FontAwesomeIcons.satellite),
+                title: Text("LogPage"),
+                onTap: ()=>Get.off(()=>LogPage()),
+              ),
+              ListTile(
+                leading: Icon(FontAwesomeIcons.pager),
                 title: Text("LogPage"),
                 onTap: ()=>Get.off(()=>LogPage()),
               ),

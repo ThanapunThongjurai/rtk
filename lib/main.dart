@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primarySwatch: Colors.red,
       ),
       home: const GetIPDevices(),
     );

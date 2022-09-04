@@ -35,32 +35,38 @@ class DataController extends GetxController {
       _socket?.listen((event) {
         //print(utf8.decode(event)+"\n\n");
         List<String> decode = NMEA().SplitData(utf8.decode(event));
+        print(decode);
         for (var element in decode) {
-            if (element.startsWith("\$GNGGA")) {
-              GNGGA.value = element;
-              GNGGAmodel temp = NMEA().GNGGAprase(element);
-              if(temp.lat == null)
-                temp.lat = "0";
-              if(temp.lon == null)
-                temp.lon = "0";
-              gngga.value = temp;
-            }
-            else if (element.startsWith("\$GNGST")) {
-              GNGST.value = element;
-              gngst.value = NMEA().GNGSTprase(element);
-            }
-            else if (element.startsWith("\$GNRMC")) {
-              GNRMC.value = element;
-              gnrmc.value = NMEA().GNRMCprase(element);
-            }
-            else if (element.startsWith("\$RUN")) {
-              RUN.value = element;
-            }
+            if(NMEA().CheckSum(element))
+              if (element.startsWith("\$GNGGA")) {
+                GNGGA.value = element;
+                GNGGAmodel temp = NMEA().GNGGAprase(element);
+                if(temp.lat == null)
+                  temp.lat = "0";
+                if(temp.lon == null)
+                  temp.lon = "0";
+                gngga.value = temp;
+              }
+              else if (element.startsWith("\$GNGST")) {
+                GNGST.value = element;
+                gngst.value = NMEA().GNGSTprase(element);
+              }
+              else if (element.startsWith("\$GNRMC")) {
+                GNRMC.value = element;
+                gnrmc.value = NMEA().GNRMCprase(element);
+              }
+              else if (element.startsWith("\$RUN")) {
+                RUN.value = element;
+              }
+
+            else
+              print("Fail CheckSum");
+
         }
 
-        print(gngst.value);
-        print(gnrmc.value);
-        print(gngga.value);
+        // print(gngst.value);
+        // print(gnrmc.value);
+        // print(gngga.value);
 
 
 
