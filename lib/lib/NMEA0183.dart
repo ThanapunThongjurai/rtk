@@ -67,10 +67,10 @@ class NMEA {
     res.quality = decode[6];
     res.sats = decode[7];
     res.hdop = decode[8];
-    res.aUnits = decode[9];
-    res.undulation = decode[10];
-    res.undulation = decode[11];
-    res.refBaseStation = decode[12];
+    res.altitude = decode[9];
+    res.altitudeUnit = decode[10];
+    res.geoid = decode[11];
+    res.geoiduUints = decode[12];
     res.age = decode[13];
     res.stnId = decode[14].substring(0, decode[14].length - 3);
 
@@ -111,7 +111,7 @@ class NMEA {
     res.magVar = decode[10];
     res.varDir = decode[11];
     res.modeInd = decode[12];
-    //res.modeInd = decode[12].substring(0,decode[12].length-3);
+    res.Navigationreceiverwarning = decode[13].substring(0,decode[13].length-3);
     return res;
   }
 }
