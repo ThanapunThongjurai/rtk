@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:network_tools/network_tools.dart';
 import 'package:get/get.dart';
 import 'package:rtk/ConfigController.dart';
-import 'package:rtk/pages/HomePage.dart';
+import 'package:rtk/pages/statusPage.dart';
 
 import '../DataController.dart';
 import '../config.dart';

@@ -7,7 +7,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:rtk/DataController.dart';
 import 'package:rtk/datamodel/GNGSTmodel.dart';
 import 'package:rtk/lib/NMEA0183.dart';
-import 'package:rtk/pages/GetIP.dart';
+import 'package:rtk/pages/getIP.dart';
 import 'package:rtk/widget/NavDrawer.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/status.dart' as status;
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       //drawer: NavDrawerWidget(),
       appBar: AppBar(
-        title: Text("HomePage"),
+        title: Text("Status"),
       ),
       body: Obx(()=>Container(
           child: Column(

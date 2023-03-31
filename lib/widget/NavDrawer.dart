@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:rtk/pages/GetIP.dart';
-import 'package:rtk/pages/HomePage.dart';
+import 'package:rtk/pages/getIP.dart';
+import 'package:rtk/pages/statusPage.dart';
 import 'package:rtk/pages/logPage.dart';
 import 'package:rtk/pages/mapPage.dart';
 

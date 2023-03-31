@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:rtk/DataController.dart';
-import 'package:rtk/pages/GetIP.dart';
-import 'package:rtk/pages/HomePage.dart';
+import 'package:rtk/pages/getIP.dart';
+import 'package:rtk/pages/statusPage.dart';
 import 'package:rtk/pages/logPage.dart';
 import 'package:rtk/pages/mapPage.dart';
 import 'package:rtk/pages/sendConfigPage.dart';
@@ -47,8 +47,8 @@ class _MyApp2State extends State<MyApp2> {
   final List<Widget> _pages = [
     const GetIPDevices(),
     const HomePage(),
-    const LogPage(),
     const sendConfigPage(),
+    const LogPage(),
     const MapPage(),
   ];
 
@@ -82,16 +82,17 @@ class _MyApp2State extends State<MyApp2> {
             ),
             BottomNavigationBarItem(
               icon:  Icon(FontAwesomeIcons.arrowsToEye),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.pager),
-              label: 'Log',
+              label: 'Status',
             ),
             BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.terminal),
               label: 'Terminal',
             ),
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.pager),
+              label: 'Log',
+            ),
+
             BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.map),
               label: 'Map',
