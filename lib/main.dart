@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:rtk/DataController.dart';
 import 'package:rtk/pages/GetIP.dart';
 import 'package:rtk/pages/HomePage.dart';
+import 'package:rtk/pages/logPage.dart';
+import 'package:rtk/pages/mapPage.dart';
+import 'package:rtk/pages/sendConfigPage.dart';
 
 import 'ConfigController.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MyApp2());
 }
 
 class MyApp extends StatelessWidget {
@@ -42,11 +46,10 @@ class _MyApp2State extends State<MyApp2> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
     const GetIPDevices(),
-    SecondPage(),
-    ThirdPage(),
-    HomePage(),
-    HomePage(),
-    HomePage(),
+    const HomePage(),
+    const LogPage(),
+    const sendConfigPage(),
+    const MapPage(),
   ];
 
   @override
@@ -72,63 +75,32 @@ class _MyApp2State extends State<MyApp2> {
           },
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.grey,
-          items: [
+          items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'First',
+              icon: Icon(FontAwesomeIcons.towerBroadcast),
+              label: 'IP',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard),
-              label: 'Second',
+              icon:  Icon(FontAwesomeIcons.arrowsToEye),
+              label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Third',
+              icon: Icon(FontAwesomeIcons.pager),
+              label: 'Log',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Third',
+              icon: Icon(FontAwesomeIcons.terminal),
+              label: 'Terminal',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Third',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Third',
+              icon: Icon(FontAwesomeIcons.map),
+              label: 'Map',
             ),
 
 
           ],
         ),
       ),
-    );
-  }
-}
-
-class FirstPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('First Page'),
-    );
-  }
-}
-
-class SecondPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Second Page'),
-    );
-  }
-}
-
-class ThirdPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Third Page'),
     );
   }
 }

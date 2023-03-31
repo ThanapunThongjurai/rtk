@@ -13,7 +13,7 @@ class _LogPageState extends State<LogPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavDrawerWidget(),
+      //drawer: NavDrawerWidget(),
       appBar: AppBar(title: Text("LOG"),),
     );
   }

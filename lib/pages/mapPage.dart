@@ -46,7 +46,21 @@ class _MapPageState extends State<MapPage> {
     point.add(Marker(markerId: MarkerId("marker1"), position: LatLng(lat, lng)));
 
     return Scaffold(
-      drawer: NavDrawerWidget(),
+      //drawer: NavDrawerWidget(),
+      appBar: AppBar(
+        title: Text("Map"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () {
+              setState(() {
+                // Refresh the map data here
+                // For example, you can call getDataFormControllerData.gngga.value again
+              });
+            },
+          ),
+        ],
+      ),
       body: Container(
         child: GoogleMap(
           markers: point,

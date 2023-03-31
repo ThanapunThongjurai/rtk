@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavDrawerWidget(),
+      //drawer: NavDrawerWidget(),
       appBar: AppBar(
         title: Text("HomePage"),
       ),

@@ -26,6 +26,7 @@ class _GetIPDevicesState extends State<GetIPDevices> {
   final getDataFormControllerData = Get.find<DataController>();
 
   Map<String, String> listIp = HashMap();
+  String? ipAppbar = "IP connect : ";
 
   //Logic
   void setIpAndPort() {}
@@ -36,7 +37,7 @@ class _GetIPDevicesState extends State<GetIPDevices> {
     getDataFormControllerData.connectServer(getDataFormControllerGetIP.ip.value,
         int.parse(getDataFormControllerGetIP.port.value));
 
-    Get.to(() => HomePage());
+    //Get.to(() => HomePage());
   }
 
   //Widget
@@ -79,7 +80,7 @@ class _GetIPDevicesState extends State<GetIPDevices> {
         String message = new String.fromCharCodes(d.data).trim();
         print('Datagram from ${d.address.address}:${d.port}: ${message}');
         setState(() {
-          listIp[d.address.address] = d.address.address ;
+          listIp[d.address.address] = d.address.address;
         });
       });
     });
@@ -101,15 +102,18 @@ class _GetIPDevicesState extends State<GetIPDevices> {
               borderRadius: BorderRadius.circular(20),
             ),
             child: ListTile(
-
-              onTap: (){
+              onTap: () {
                 getDataFormControllerGetIP.ip.value = listIp[keys[index]]!;
                 getDataFormControllerGetIP.port.value = port.text;
-                getDataFormControllerData.connectServer(getDataFormControllerGetIP.ip.value,
+                getDataFormControllerData.connectServer(
+                    getDataFormControllerGetIP.ip.value,
                     int.parse(getDataFormControllerGetIP.port.value));
 
-                Get.to(() => HomePage());
-
+                setState(() {
+                  ipAppbar =
+                      "IP connect : " + getDataFormControllerGetIP.ip.value;
+                });
+                //Get.to(() => HomePage());
               },
               title: Text(listIp[keys[index]]!),
             )));
@@ -117,6 +121,9 @@ class _GetIPDevicesState extends State<GetIPDevices> {
 
   @override
   void initState() {
+    if (getDataFormControllerGetIP.ip.value != null) {
+      ipAppbar = "IP connect : " + getDataFormControllerGetIP.ip.value;
+    }
     testScan();
     super.initState();
   }
@@ -130,9 +137,9 @@ class _GetIPDevicesState extends State<GetIPDevices> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavDrawerWidget(),
+      //drawer: NavDrawerWidget(),
       appBar: AppBar(
-        title: const Text("SELECT IP TO CONNECT"),
+        title: Text(ipAppbar!),
       ),
       body: Column(
         children: <Widget>[
