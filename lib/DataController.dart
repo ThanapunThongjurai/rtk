@@ -34,8 +34,10 @@ class DataController extends GetxController {
       _socket = await Socket.connect(ip, port);
       _socket?.listen((event) {
         //print(utf8.decode(event)+"\n\n");
+        print(utf8.decode(event));
+        print("-----------------------------END DATA---------------------------");
         List<String> decode = NMEA().SplitData(utf8.decode(event));
-        print(decode);
+        //print(decode);
         for (var element in decode) {
             if(NMEA().CheckSum(element))
               if (element.startsWith("\$GNGGA")) {
